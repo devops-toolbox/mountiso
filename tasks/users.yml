@@ -1,0 +1,17 @@
+---
+# Users and groups configuration for mountiso
+
+- name: defined groups are created
+  group:
+    name: "{{ item.group }}"
+    state: present
+  loop: "{{ mountiso_users }}"
+  become: true
+
+- name: users added to secondary groups
+  user:
+    name: "{{ item.user }}"
+    append: true
+    groups: "{{ item.group }}"
+  become: true
+  loop: "{{ mountiso_users }}"

@@ -1,0 +1,10 @@
+---
+# Template configuration files for mountiso
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ mountiso_templates_copy }}"
+  when: mountiso_copy_templates

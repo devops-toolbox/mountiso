@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+mountiso_repos_create: "{{ _mountiso_repos_create['all']
+  | union ( _mountiso_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+mountiso_repos_download: "{{ _mountiso_repos_download['all']
+  | union ( _mountiso_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+mountiso_templates_copy: "{{ _mountiso_templates_copy['all']
+  | union ( _mountiso_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+mountiso_services_enable: "{{ _mountiso_services_enable['all']
+  | union ( _mountiso_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+mountiso_selinux_enable: "{{ _mountiso_selinux_enable['all']
+  | union ( _mountiso_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+mountiso_packages_remove: "{{ _mountiso_packages_remove['all']
+  | union ( _mountiso_packages_remove[my_os]
+  | default([]) ) }}"
+mountiso_packages_repos: "{{ _mountiso_packages_repos['all']
+  | union ( _mountiso_packages_repos[my_os]
+  | default([]) ) }}"
+mountiso_packages_prereq: "{{ _mountiso_packages_prereq['all']
+  | union ( _mountiso_packages_prereq[my_os]
+  | default([]) ) }}"
+mountiso_packages_install: "{{ _mountiso_packages_install['all']
+  | union ( _mountiso_packages_install[my_os]
+  | default([]) ) }}"

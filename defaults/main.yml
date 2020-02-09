@@ -1,0 +1,19 @@
+---
+# defaults file for mountiso
+
+mountiso_packages_state: present
+mountiso_remove_packages: true
+mountiso_enable_service: true
+mountiso_enable_selinux: true
+mountiso_copy_templates: true
+mountiso_firewall_configure: true
+mountiso_firewall_rules:
+  - service: ssh
+  - port: 3389
+mountiso_users:
+  - user: devops
+    group: docker
+mountiso_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true

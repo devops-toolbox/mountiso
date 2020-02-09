@@ -1,0 +1,27 @@
+---
+# Install mountiso packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ mountiso_packages_remove }}"
+    state: absent
+  become: true
+  when: mountiso_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ mountiso_packages_repos }}"
+    state: "{{ mountiso_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ mountiso_packages_prereq }}"
+    state: "{{ mountiso_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ mountiso_packages_install }}"
+    state: "{{ mountiso_packages_state }}"
+  become: true
