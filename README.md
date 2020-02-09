@@ -8,10 +8,10 @@ mountiso: Mountiso
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.mountiso](https://galaxy.ansible.com/devops-toolbox.mountiso)
+[https://galaxy.ansible.com/devopstoolbox.mountiso](https://galaxy.ansible.com/devopstoolbox.mountiso)
 
 ```bash
-ansible-galaxy install devops-toolbox.mountiso
+ansible-galaxy install devopstoolbox.mountiso
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: mountiso is configured
       import_role:
-        name: devops-toolbox.mountiso
+        name: devopstoolbox.mountiso
       vars:
         mountiso_packages_state: present
         mountiso_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
